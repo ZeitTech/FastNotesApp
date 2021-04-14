@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="goBack()"></ion-back-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="validate()">
+        <ion-icon slot="icon-only" name="checkmark-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+    <ion-title>Add note</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating">Note Title</ion-label>
+          <ion-icon slot="end" color="danger" *ngIf="!isNoteTitleValid" name="close-circle-outline"></ion-icon>
+          <ion-input [(ngModel)]="noteTitle"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Note date</ion-label>
+          <ion-datetime [(ngModel)]="noteDate"></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Note Content</ion-label>
+          <ion-textarea [(ngModel)]="noteContent"></ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
